@@ -36,4 +36,8 @@ colocar_tablero(negras, 0, 1)
 colocar_tablero(blancas, 7, 6)
 for i in range(8):
     print(tablero[i])
-    
+
+f = open("partida-ajedrez.txt", "w", encoding="utf-8")
+for i in range(8):
+    f.write(str(tablero[i]) + '\n')
+f.close
