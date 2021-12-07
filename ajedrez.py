@@ -1,82 +1,36 @@
-blancas = {
-    'torre': chr(0x2656),
-    'caballo': chr(0x2658),
-    'alfil': chr(0x2657),
-    'reina': chr(0x2655),
-    'rey': chr(0x2654),
-    'peon': chr(0x2659)
-} 
-negras = {
-    'torre': chr(0x265C),
-    'caballo': chr(0x265E),
-    'alfil': chr(0x265D),
-    'reina': chr(0x265B),
-    'rey': chr(0x265A),
-    'peon': chr(0x265F)
-}
-piezas_blancas = list(blancas.values())
-piezas_negras = list(negras.values())
-
-def colocar_piezas(PIEZAS_COLOR):
-    if PIEZAS_COLOR == piezas_negras:
-        j = 0
-        for i in range (9):
-            if i % 2 == 0:
-                if j < 5:
-                    f.write(PIEZAS_COLOR[j])
-                    j = j + 1
-                else:
+import tablero_fichero
+from tablero_listas import tablero
+tablero_fichero.tablero_inicial()
+while True:
+    continuar = input("¿Quieres realizar un movimiento? ")
+    if continuar == "SI":
+        while True:
+            inicio = input("Elija la fila y la columna de la pieza que desea mover separadas por espacios: ")
+            inicio = inicio.split()
+            filaI = inicio[0]
+            columnaI = inicio[1]
+            try:
+                filaI = int(filaI)
+                columnaI = int(columnaI)
+            except:
+                pass
+            else:
+                if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8:
                     break
+        while True:
+            final = input("Elija la fila y la columna de la pieza que desea mover separadas por espacios: ")
+            final = final.split()
+            filaF = final[0]
+            columnaF = final[1]
+            try:
+                filaF = int(final)
+                columnaF = int(columnaF)
+            except:
+                pass
             else:
-                f.write("    ")
-        j = 2
-        for i in range (6):
-            if i % 2 == 0:
-                f.write("    ")
-            else:
-                if j >= 0:
-                    f.write(PIEZAS_COLOR[j])
-                    j = j - 1
-                else:
+                if filaF >= 0 and filaF < 8 and columnaF >= 0 and columnaF < 8:
+                    tablero[filaF][columnaF] = tablero[filaI]
+                    tablero[filaI][columnaI] = " "
                     break
-        f.write('\n')
-        for i in range (15):
-            if i % 2 == 0:
-                f.write(PIEZAS_COLOR[5])
-            else:
-                f.write("    ")
     else:
-        f.write('\n')
-        for i in range (15):
-            if i % 2 == 0:
-                f.write(PIEZAS_COLOR[5])
-            else:
-                f.write("    ")
-        f.write('\n')
-        j = 0
-        for i in range (9):
-            if i % 2 == 0:
-                if j < 5:
-                    f.write(PIEZAS_COLOR[j])
-                    j = j + 1
-                else:
-                    break
-            else:
-                f.write("    ")
-        j = 2
-        for i in range (6):
-            if i % 2 == 0:
-                f.write("    ")
-            else:
-                if j >= 0:
-                    f.write(PIEZAS_COLOR[j])
-                    j = j - 1
-                else:
-                    break
-
-f = open("partida-ajedrez.txt", "w", encoding="utf-8")
-colocar_piezas(piezas_negras)
-for i in range(4):
-    f.write('\n')
-colocar_piezas(piezas_blancas)
-f.close
+        break
