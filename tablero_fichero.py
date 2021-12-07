@@ -1,5 +1,6 @@
 from tablero_listas import tablero
-f = open("partida-ajedrez.txt", "w", encoding="utf-8")
+fichero = input("Escriba el nombre del fichero en el que quiere que se cree su partida: ")
+f = open(fichero, "a+", encoding="utf-8")
 def tablero_fichero():
     for i in range(8):
         f.write('\n')
@@ -7,4 +8,6 @@ def tablero_fichero():
             f.write(str(tablero[i][j]))
             f.write("   ")
     f.write('\n')
-    f.close
+def leer_tablero():
+    f.seek()
+    print(f.read())

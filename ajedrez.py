@@ -1,13 +1,13 @@
 import tablero_fichero
 from tablero_fichero import f
 from tablero_listas import tablero
-a = 0
-f.write("Movimiento " + str(a))
+movimiento = 0
+f.write("Movimiento " + str(movimiento))
 tablero_fichero.tablero_fichero()
 while True:
     continuar = input("¿Quieres realizar un movimiento? ")
     if continuar == "si":
-        a = a + 1
+        movimiento = movimiento + 1
         while True:
             inicio = input("Elija la fila y la columna de la pieza que desea mover, separadas por espacios: ")
             inicio = inicio.split()
@@ -38,7 +38,15 @@ while True:
                         tablero[filaF][columnaF] = tablero[filaI][columnaI]
                         tablero[filaI][columnaI] = " "
                         break
-        f.write("Movimiento " + str(a))
+        f.write("Movimiento " + str(movimiento))
         tablero_fichero.tablero_fichero()
     elif continuar == "no":
+        break
+while True:
+    mostrar_mov = input("¿Desea que se muestre en pantalla algún movimiento? ")
+    if mostrar_mov == "si":
+        paso = input("¿Cual es el movimiento que desea que se le muestre? ")
+        tablero_fichero.leer_tablero()
+    elif mostrar_mov == "no":
+        f.close
         break
