@@ -45,8 +45,15 @@ while True:
 while True:
     mostrar_mov = input("¿Desea que se muestre en pantalla algún movimiento? ")
     if mostrar_mov == "si":
-        paso = input("¿Cual es el movimiento que desea que se le muestre? ")
-        tablero_fichero.leer_tablero()
+        while True:
+            paso = input("¿Cual es el movimiento que desea que se le muestre? ")
+            try:
+                paso = int(paso)
+            except:
+                pass
+            else:
+                break
+        tablero_fichero.leer_tablero(paso)
     elif mostrar_mov == "no":
         f.close
         break

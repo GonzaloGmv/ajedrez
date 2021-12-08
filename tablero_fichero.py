@@ -8,6 +8,8 @@ def tablero_fichero():
             f.write(str(tablero[i][j]))
             f.write("   ")
     f.write('\n')
-def leer_tablero():
-    f.seek()
-    print(f.read())
+def leer_tablero(PASO):
+    f.seek(0)
+    lineas = f.readlines()
+    for i in range(8):
+        print(lineas[PASO * 9 + 1 + i], end='')
