@@ -20,7 +20,7 @@ while True:
                 except:
                     pass
                 else:
-                    if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8:
+                    if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8 and tablero[filaI][columnaI] != " ":
                         break
         while True:
             final = input("Elija la fila y la columna a la que desea mover la pieza, separadas por espacios: ")
