@@ -52,7 +52,8 @@ while True:
             except:
                 pass
             else:
-                break
+                if paso <= movimiento and paso >= 0:
+                    break
         tablero_fichero.leer_tablero(paso)
     elif mostrar_mov == "no":
         f.close
