@@ -1,6 +1,6 @@
 import tablero_fichero
 from tablero_fichero import f
-from tablero_listas import tablero
+from tablero_listas import tablero, piezas_blancas, piezas_negras
 movimiento = 0
 f.write("Movimiento " + str(movimiento))
 tablero_fichero.tablero_fichero()
@@ -9,6 +9,10 @@ while True:
     if continuar == "si":
         movimiento = movimiento + 1
         while True:
+            if movimiento % 2 == 1:
+                print("Juegan blancas:")
+            else:
+                print("Juegan negras")
             inicio = input("Elija la fila y la columna de la pieza que desea mover, separadas por espacios: ")
             inicio = inicio.split()
             if len(inicio) == 2:
@@ -20,8 +24,11 @@ while True:
                 except:
                     pass
                 else:
-                    if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8 and tablero[filaI][columnaI] != " ":
-                        break
+                    if filaI >= 0 and filaI < 8 and columnaI >= 0 and columnaI < 8:
+                        if movimiento % 2 == 1 and piezas_blancas.__contains__(tablero[filaI][columnaI]):
+                            break
+                        elif movimiento % 2 == 0 and piezas_negras.__contains__(tablero[filaI][columnaI]):
+                            break
         while True:
             final = input("Elija la fila y la columna a la que desea mover la pieza, separadas por espacios: ")
             final = final.split()

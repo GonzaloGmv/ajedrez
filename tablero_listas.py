@@ -14,6 +14,8 @@ negras = {
     'rey': chr(0x265A),
     'peon': chr(0x265F)
 }
+piezas_blancas = list(blancas.values())
+piezas_negras = list(negras.values())
 tablero = []
 for i in range(8):
     tablero.append([' '] * 8)
