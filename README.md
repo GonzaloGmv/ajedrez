@@ -8,6 +8,8 @@ Para realizar esto, primero pensaba que había que utilizar listas, pero al impr
 
 Algun problema que he tenido, ha sido que al escribir en el fichero los caracteres del ajedrez, este no me los leía, y en internet, encontré que había que añadir *encoding="utf-8"* a la funcion *.open()* para que funcionara. Otro problema ha sido que a la hora de leer el archivo, me leía solamente un salto de línea, y en internet he encontrado que eso se debía a que al escribir, el cursor se queda al final, por lo que se lee desde ahi. Para solucionar esto, he utilizado la funcion *.seek()* con un 0 para que el cursor se colocara al principio.
 
+Para realizar este ajedrez, he tenido en cuenta que el usuario conoce las reglas del ajedrez, por lo que no va a realizar ningún movimiento ilegal. Pero 
+
 Mi **diagrama de flujo** para este proyecto es:
 
 ![diagrama_ajedrez](https://user-images.githubusercontent.com/91721237/145688877-6c2bac68-2b03-40fa-b1cb-c1e66b0895e7.jpg)
